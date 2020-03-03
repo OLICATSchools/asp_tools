@@ -12,16 +12,16 @@ import numpy as np
 
 
 phonics_folder = 'Pho/'
-phonics_columns = {}
+phonics_columns = {'Last_Name' : 'text', 'First_Name' : 'text', 'UPN' : 'text', 'Gender' : 'text', 'DOB' : 'text', 'Disadvantaged' : 'text', 'EAL' : 'text', 'SEN' : 'text', 'Ethnicty' : 'text', 'Outcome' : 'text', 'Mark' : 'numeric'}
 
 ks1_folder = 'Ks1/'
-ks1_columns = {}
+ks1_columns = {'Last_Name' : 'text', 'First_name' : 'text', 'UPN' : 'text', 'Gender' : 'text', 'DOB' : 'text', 'Disadvantaged' : 'text', 'EAL' : 'text', 'SEN' : 'text', 'Ethnicty' : 'text', 'KS1_Reading' : 'text', 'KS1_Writing' : 'text', 'KS1_Maths' : 'text', 'KS1_Science' : 'text'}
 
 ks2_folder = 'Ks2/'
 ks2_columns  = {'Last_Name' : 'text', 'First_Name' : 'text', 'UPN' : 'text', 'Gender' : 'text', 'DOB' : 'text', 'Disadvantaged' : 'text', 'EAL' : 'text', 'SEN' : 'text', 'Non_Mobile' : 'text', 'Ethnicity' : 'text', 'KS1_Reading_Level' : 'text', 'KS1_Reading_Band' : 'text', 'KS1_Writing_Level' : 'text', 'KS1_Writing_Band' : 'text', 'KS1_Maths_Level' : 'text', 'KS1_Maths_Band' : 'text', 'KS1_Points' : 'numeric', 'KS1_Band' : 'text', 'KS2_Reading_TA' : 'text', 'KS2_Reading_Scaled_Score' : 'numeric', 'KS2_Reading_Nominal_Scaled_Score' : 'numeric', 'KS2_Reading_Estimate' : 'numeric', 'KS2_Reading_Progress_Adjusted' : 'numeric', 'KS2_Reading_Progress_Unadjusted' : 'numeric', 'KS2_Reading_Expected' : 'text', 'KS2_Reading_High' : 'text', 'KS2_Maths_TA' : 'text', 'KS2_Maths_Scaled_Score' : 'numeric', 'KS2_Maths_Nominal_Scaled_Score' : 'numeric', 'KS2_Maths_Estimate' : 'numeric', 'KS2_Maths_Progress_Adjusted' : 'numeric', 'KS2_Maths_Progress_Unadjusted' : 'numeric', 'KS2_Maths_Expected' : 'text', 'KS2_Maths_High' : 'text', 'KS2_Writing_TA' : 'text', 'KS2_Writing_Nominal_Score' : 'numeric', 'KS2_Writing_Estimate' : 'numeric', 'KS2_Writing_Progress_Adjusted' : 'numeric', 'KS2_Writing_Progress_Unadjusted' : 'numeric', 'KS2_Writing_Expected' : 'text', 'KS2_Writing_High' : 'text', 'KS2_RWM_Expected' : 'text', 'KS2_RWM_High' : 'text', 'KS2_GPS_Scaled Score' : 'numeric', 'KS2_GPS_Expected' : 'text', 'KS2_GPS_High' : 'text', 'KS2_GPS_Spelling_Mark' : 'numeric', 'KS2_Science_TA' : 'text', 'KS2_Science_Expected' : 'text'}
 
 ks4_folder = 'Ks4/'
-ks4_columns = {}
+ks4_columns = {'Last_Name' : 'text', 'First_Name' : 'text', 'UPN' : 'text', 'Gender' : 'text', 'DOB' : 'text', 'Disadvantaged' : 'text', 'EAL' : 'text', 'SEN' : 'text', 'Non_Mobile' : 'text', 'Ethnicity' : 'text', 'KS2_Reading_Score' : 'numeric', 'KS2_Reading_Band' : 'text', 'KS2_Maths_Score' : 'numeric', 'KS2_Maths_Band' : 'text', 'KS2_Overall_Score' : 'numeric', 'KS2_Overall_Band' : 'text', 'KS4_A8_Score' : 'numeric', 'KS4_A8_Estimate' : 'numeric', 'KS4_P8_Adjusted' : 'numeric', 'KS4_P8_Unadjusted' : 'numeric', 'KS4_5EM_Achieved' : 'text', 'KS4_Ebacc_Achieved' : 'text', 'KS4_English_Score' : 'numeric', 'KS4_English_Estimate' : 'numeric', 'KS4_English_Progress' : 'numeric', 'KS4_Maths_Score' : 'numeric', 'KS4_Maths_Estimate' : 'numeric', 'KS4_Maths_Progress' : 'numeric', 'KS4_Ebacc_Slot1' : 'numeric', 'KS4_Ebacc_Slot2' : 'numeric', 'KS4_Ebacc_Slot3' : 'numeric', 'KS4_Ebacc_Score' : 'numeric', 'KS4_Ebacc_Estimate' : 'numeric', 'KS4_Ebacc_Progress' : 'numeric', 'KS4_Open_Slot1' : 'numeric', 'KS4_Open_Slot2' : 'numeric', 'KS4_Open_Slot3' : 'numeric', 'KS4_Open_GCSE' : 'numeric', 'KS4_Open_NonGCSE' : 'numeric', 'KS4_Open_Score' : 'numeric', 'KS4_Open_Estimate' : 'numeric', 'KS4_Open_Progress' : 'numeric', 'KS4_Pillar_English_Entry' : 'text', 'KS4_Pillar_English_Achieved' : 'text', 'KS4_Pillar_Maths_Entry' : 'text', 'KS4_Pillar_Maths_Achieved' : 'text', 'KS4_Pillar_Science_Entry' : 'text', 'KS4_Pillar_Science_Achieved' : 'text', 'KS4_Pillar_Humanities_Entry' : 'text', 'KS4_Pillar_Humanities_Achieved' : 'text', 'KS4_Pillar_Language_Entry' : 'text', 'KS4_Pillar_Language_Achieved' : 'text'}
 
 
 def prep_dataset(folder_name, col_headers):
