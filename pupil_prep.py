@@ -63,6 +63,13 @@ def prep_dataset(folder_name, col_headers):
     # Extract the month of birth from the DOB column
     # Column needs to be handled as DateTime - remember it is currently a string
     df_file['BirthMonth'] = pd.DatetimeIndex(df_file['DOB']).month
+    
+    # Clean up some of the columns into codes
+    df_file['Gender'] = df_file['Gender'].map({'Female' : 'F', 'Male' : 'M'})
+    df_file['Disadvantaged'] = df_file['Disadvantaged'].map({'Yes' : 'Y', 'No' : 'N'})
+    df_file['SEN'] = df_file['SEN'].map({'No SEN' : 'N', '' : 'N', 'SEN support' : 'K', 'SEN with statement or EHC plan' : 'E', 'SEN EHCP' : 'E'})
+    df_file['EAL'] = np.select([df_file['EAL'] == 'English', df_file['EAL'] == ''], ['N', 'U'], 'Y')
+    df_file['Minority_Ethnic'] = np.where(df_file['Ethnicity'] == 'White British', 'N', 'Y')
 
     # Append to master dataset
     df_cleaned = df_cleaned.append(df_file)
